@@ -8,9 +8,9 @@ app.use(bodyParser.json());
 
 // POST route to receive and modify HTML content
 app.post('/modify-html', (req, res) => {
+  const { htmlContent } = req.body;
   try {
-    const { htmlContent } = req.body;
-    console.log("html content", htmlContent);
+    console.log("html content", req.body);
 
 
     // Send back the modified HTML content as a response
