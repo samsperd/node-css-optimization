@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/modify-html', (req, res) => {
   const { compressedHTML } = req.body;
   try {
-    console.log("body", req.body);
+    console.log(req.body);
     // const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
 
     // // Process the decompressed HTML (you can modify this part)
