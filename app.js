@@ -10,12 +10,12 @@ const app = express();
 app.use(bodyParser.json());
 
 // POST route to receive and modify HTML content
-app.post('/modify-html', (req, res) => {
+app.post('/modify-html', async (req, res) => {
   try {
     const { compressedHTML } = req.body;
     // console.log(req.body);
     // console.log(compressedHTML);
-    const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
+    const decompressedBuffer = await decompress(Buffer.from(compressedHTML, 'base64'));
 
     // // Process the decompressed HTML (you can modify this part)
     const processedHtml = decompressedBuffer.toString('utf-8');
