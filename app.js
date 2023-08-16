@@ -15,13 +15,13 @@ app.post('/modify-html', (req, res) => {
     const { compressedHTML } = req.body;
     // console.log(req.body);
     // console.log(compressedHTML);
-    const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
+    // const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
 
-    // // Process the decompressed HTML (you can modify this part)
-    const processedHtml = decompressedBuffer.toString('utf-8');
+    // // // Process the decompressed HTML (you can modify this part)
+    // const processedHtml = decompressedBuffer.toString('utf-8');
 
-    // console.log("processed HTML", processedHtml);
-    console.log(processedHtml);
+    // // console.log("processed HTML", processedHtml);
+    // console.log(processedHtml);
 
 
     // Send back the modified HTML content as a response
