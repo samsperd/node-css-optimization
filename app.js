@@ -1,4 +1,4 @@
-import { decompress } from 'brotli-compress'
+const { decompress } = require('brotli-compress')
 import { Buffer } from 'buffer'
 const express = require('express');
 const bodyParser = require('body-parser');
