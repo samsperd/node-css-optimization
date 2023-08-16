@@ -8,13 +8,20 @@ app.use(bodyParser.json());
 
 // POST route to receive and modify HTML content
 app.post('/modify-html', (req, res) => {
-  const { htmlContent } = req.body;
+  const { compressedHTML } = req.body;
   try {
-    console.log("html content", req.body);
+    console.log("body", req.body);
+    const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
+
+    // Process the decompressed HTML (you can modify this part)
+    const processedHtml = decompressedBuffer.toString('utf-8');
+
+    console.log("processed HTML", processedHtml);
+    console.log(processedHtml);
 
 
     // Send back the modified HTML content as a response
-    res.status(200).send(htmlContent);
+    res.status(200).send("htmlContent");
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('An error occurred.');
