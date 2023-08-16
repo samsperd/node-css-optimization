@@ -10,10 +10,10 @@ app.use(express.json());
 
 // POST route to receive and modify HTML content
 app.post('/modify-html', (req, res) => {
-  const { compressedHTML } = req.body;
+  const { compressedUint8Array } = req.body;
   try {
     console.log(req.body);
-    console.log(compressedHTML);
+    console.log(compressedUint8Array);
     // const decompressedBuffer = decompress(Buffer.from(compressedHTML, 'base64'));
 
     // // Process the decompressed HTML (you can modify this part)
