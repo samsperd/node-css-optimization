@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // Middleware to parse JSON request bodies
-app.use(bodyParser.json());
+app.use(express.json());
 
 // POST route to receive and modify HTML content
 app.post('/modify-html', (req, res) => {
