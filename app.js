@@ -14,7 +14,7 @@ app.post('/modify-html', async (req, res) => {
   try {
     const { compressedHTML } = req.body;
     // console.log(req.body);
-    console.log(compressedHTML);
+    console.log(req.body);
     // const decompressedBuffer = await decompress(Buffer.from(compressedHTML, 'base64'));
 
     // // // Process the decompressed HTML (you can modify this part)
