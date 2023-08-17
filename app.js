@@ -14,7 +14,10 @@ app.post('/modify-html', async (req, res) => {
   try {
     const { compressedHTML } = req.body;
     // console.log(req.body);
-    console.log(req.body);
+    // Convert the serialized XML back to an HTML document
+const parser = new DOMParser();
+const doc = parser.parseFromString(compressedHTML, 'text/html');
+console.log(doc);
     // const decompressedBuffer = await decompress(Buffer.from(compressedHTML, 'base64'));
 
     // // // Process the decompressed HTML (you can modify this part)
