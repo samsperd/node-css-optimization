@@ -7,7 +7,7 @@ const { Buffer } = require('buffer')
 const app = express();
 
 // Middleware to parse JSON request bodies
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' }));
 
 // POST route to receive and modify HTML content
 app.post('/modify-html', async (req, res) => {
