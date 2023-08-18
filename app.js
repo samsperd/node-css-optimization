@@ -15,7 +15,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 // POST route to receive and modify HTML content
 app.post('/modify-html', async (req, res) => {
   try {
-    const { serializedXML, pageUrl, styleContent } = req.body;
+    const { serializedXML, styleContent } = req.body;
     // Convert the serialized XML back to an HTML document
     const clonedDocument = cheerio.load(serializedXML).html()
 
