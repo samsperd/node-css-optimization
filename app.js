@@ -7,8 +7,7 @@ var uncss = require('uncss');
 
 const app = express();
 
-// Middleware to parse JSON request bodies
-app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.json({ limit: '25mb' }));
 
 
 
@@ -16,6 +15,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.post('/modify-html', async (req, res) => {
   try {
     const { serializedXML, styleContent } = req.body;
+
     // Convert the serialized XML back to an HTML document
     const clonedDocument = cheerio.load(serializedXML).html()
 

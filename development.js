@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware to parse JSON request bodies
 app.use(cors());
-app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
 
 
 
