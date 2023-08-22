@@ -8,7 +8,7 @@ var CleanCSS = require('clean-css');
 
 const app = express();
 
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.json({ limit: '100mb' }));
 
 
 
