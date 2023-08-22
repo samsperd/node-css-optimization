@@ -26,15 +26,16 @@ app.post('/modify-html', async (req, res) => {
 
   
     uncss(clonedDocument, options, function (error, output) {
-      var minifiedCSS = new CleanCSS().minify(output);
+      // var minifiedCSS = new CleanCSS().minify(output);
 
-      res.status(200).send(minifiedCSS);
+      // res.status(200).send(minifiedCSS);
+      res.status(200).send(output);
     });
   
 
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).send('An error occurred.');
+    res.status(500).send('An error occurred.', error);
   }
 });
 
