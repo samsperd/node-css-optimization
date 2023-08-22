@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cheerio = require('cheerio')
 const cors = require('cors');
 var uncss = require('uncss');
+var CleanCSS = require('clean-css');
 
 
 
@@ -10,7 +11,7 @@ const app = express();
 
 // Middleware to parse JSON request bodies
 app.use(cors());
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.json({ limit: '100mb' }));
 
 
 
@@ -23,13 +24,19 @@ app.post('/modify-html', async (req, res) => {
 
     var options = {
       raw: styleContent,
-  };
+    };
 
   
-    uncss(clonedDocument, options, function (error, output) {
+    uncss(clonedDocument, options, async function (error, output) {
       console.log("output");
-      res.status(200).send(output);
+
+      var minifiedCSS = new CleanCSS().minify(output);
+
+      res.status(200).send(minifiedCSS);
+
+
     });
+    
   
 
   } catch (error) {

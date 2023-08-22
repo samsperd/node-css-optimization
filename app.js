@@ -25,8 +25,9 @@ app.post('/modify-html', async (req, res) => {
 
   
     uncss(clonedDocument, options, function (error, output) {
-      console.log("output");
-      res.status(200).send(output);
+      var minifiedCSS = new CleanCSS().minify(output);
+
+      res.status(200).send(minifiedCSS);
     });
   
 
